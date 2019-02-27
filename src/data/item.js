@@ -14,4 +14,7 @@ const item = {
   }
 };
 
-export default item;
+export const getPricingData = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => resolve(item), 1000);
+  });

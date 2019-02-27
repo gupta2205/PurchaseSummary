@@ -1,13 +1,15 @@
-import mockItem from "../../data/item";
+import mockItem, { getPricingData } from "../../data/item";
 
 // Action types
 const FETCH_ITEM_DATA = "FETCH_ITEM_DATA";
 
 // Action creators
-export const fetchItemData = () => ({
-  type: FETCH_ITEM_DATA,
-  payload: mockItem
-});
+export const fetchItemData = () => dispatch => {
+  return getPricingData().then(result => dispatch({
+    type: FETCH_ITEM_DATA,
+    payload: result
+  }));
+};
 
 // Selectors
 export const getItem = ({ item }) => item;
