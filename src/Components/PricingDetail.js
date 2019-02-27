@@ -1,16 +1,13 @@
 import React from "react";
+import Price from "./Price";
+import Separator from "./Separator";
 import Tooltip from "./Tooltip";
-
-const Separator = () => <hr className="separator" />
 
 const TotalPriceItem = ({ price }) => (
   <p className="detail-item total-price-item">
     <span>Est. Total</span>
     <Price className="total-price">{price}</Price>
   </p>
-);
-const Price = ({ children, negative, className = '' }) => (
-  <span className={`detail-price${negative ? ' color-red' : ''} ${className}`}>{`${negative ? '-' : ''}$${children}`}</span>
 );
 
 const DetailItem = props => {
@@ -45,7 +42,7 @@ const PricingDetail = ({ pricing, itemDetails }) => {
         }
       />
       <DetailItem name="Est taxes and fees" price={pricing.tax} />
-      <Separator/>
+      <Separator />
       <TotalPriceItem price={pricing.total} />
     </div>
   );

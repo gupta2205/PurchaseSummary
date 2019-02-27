@@ -1,20 +1,35 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Collapsible from './Collapsible';
+import Collapsible, { CollapsibleHeader } from "./Collapsible";
+import Price from "./Price";
 
 const ItemDetails = ({ item }) => {
-  const header = (
-      <p className="underlined-text">See items details</p>
-  );
+  const { itemDetails, pricing } = item;
 
-  return <Collapsible header={header}>
-    <div className="item-details-container">
-      <div className="item-image-container">
-        <img src={item.image} alt="" width="50%"/>
+  const headers = {
+    openHeader: <CollapsibleHeader>Hide items details</CollapsibleHeader>,
+    closedHeader: <CollapsibleHeader>Show items details</CollapsibleHeader>
+  };
+
+  return (
+    <Collapsible {...headers}>
+      <div className="item-details-container">
+        <div className="item-image-container">
+          <img src={itemDetails.image} alt="" />
+        </div>
+        <div>
+          <p>{itemDetails.item_name}</p>
+          <p>{itemDetails.item_name}</p>
+          <p className="item-price-quality">
+            <Price>{pricing.subtotal - pricing.savings}</Price>
+            <span>Qty: {itemDetails.quantity}</span>
+          </p>
+          <p>
+            <Price className="old-price">{pricing.subtotal}</Price>
+          </p>
+        </div>
       </div>
-      <p>{item.item_name}</p>
-    </div>
-  </Collapsible>;
+    </Collapsible>
+  );
 };
 
 export default ItemDetails;

@@ -66,6 +66,7 @@ body {
   .purchase-summary-container {
     min-width: 100%;
     border: none;
+    width: 100%;
   }
 }
 
@@ -179,9 +180,32 @@ body {
 
 .item-image-container {
   width: 30%;
+  padding: 20px;
 }
 
 .item-image-container img {
   max-height: 100%;
   max-width: 100%;
+}
+
+.item-price-quality {
+  display: flex;
+  justify-content: space-between;
+}
+
+.old-price {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+input {
+  min-height: 20px;
+}
+
+.apply-button {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  margin-left: 15px;
+  font-weight: 600;
 }
