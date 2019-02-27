@@ -1,11 +1,16 @@
 import React from "react";
 import Tooltip from "./Tooltip";
 
-const TotalPriceItem = ({ children }) => (
-  <p className="total-price">{children}</p>
+const Separator = () => <hr className="separator" />
+
+const TotalPriceItem = ({ price }) => (
+  <p className="detail-item total-price-item">
+    <span>Est. Total</span>
+    <Price className="total-price">{price}</Price>
+  </p>
 );
-const Price = ({ children, negative }) => (
-  <span className={`detail-price${negative ? ' color-red' : ''}`}>{`${negative ? '-' : ''}$${children}`}</span>
+const Price = ({ children, negative, className = '' }) => (
+  <span className={`detail-price${negative ? ' color-red' : ''} ${className}`}>{`${negative ? '-' : ''}$${children}`}</span>
 );
 
 const DetailItem = props => {
@@ -22,13 +27,13 @@ const DetailItem = props => {
 const PickupSavingsItem = ({ tooltip, price }) => (
   <p className="detail-item">
     <Tooltip position={"bottom"} message={tooltip}>
-      Pickup savings
+      <span className="underlined-text">Pickup savings</span>
     </Tooltip>
     <Price negative>{price}</Price>
   </p>
 );
 
-const PricingDetail = ({ pricing }) => {
+const PricingDetail = ({ pricing, itemDetails }) => {
   return (
     <div>
       <DetailItem name="Subtotal" price={pricing.subtotal} />
@@ -40,10 +45,8 @@ const PricingDetail = ({ pricing }) => {
         }
       />
       <DetailItem name="Est taxes and fees" price={pricing.tax} />
-      <hr />
-      <TotalPriceItem>
-        Est total: <Price>{pricing.total}</Price>
-      </TotalPriceItem>
+      <Separator/>
+      <TotalPriceItem price={pricing.total} />
     </div>
   );
 };

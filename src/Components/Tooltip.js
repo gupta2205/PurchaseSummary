@@ -23,13 +23,13 @@ class Tooltip extends React.Component {
     const { message } = this.props;
 
     return (
-      <span className="tooltip" onMouseLeave={this.hideTooltip}>
+      <span className="tooltip" >
         {this.state.displayTooltip && (
           <div className="tooltip-bubble tooltip-bottom">
             <div className="tooltip-message">{message}</div>
           </div>
         )}
-        <span className="tooltip-trigger" onMouseOver={this.showTooltip}>
+        <span className="tooltip-trigger" onClick={this.showTooltip}>
           {this.props.children}
         </span>
       </span>

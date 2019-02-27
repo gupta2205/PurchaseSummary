@@ -4,7 +4,7 @@ html {
 }
 
 p {
-  font-size: 1.6rem;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -57,12 +57,12 @@ body {
   flex-direction: column;
   max-width: 400px;
   min-width: 400px;
-  padding: 15px;
+  padding: 25px;
   border: 1px solid #aaa;
   border-radius: 8px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   .purchase-summary-container {
     min-width: 100%;
     border: none;
@@ -88,7 +88,6 @@ body {
 
 .tooltip-trigger {
   display: inline-block;
-  text-decoration: underline;
   width: 100%;
   cursor: help;
 }
@@ -139,6 +138,50 @@ body {
   line-height: 1.4;
   padding: 0.75em;
   text-align: center;
-  width: 200px;
+  width: 130px;
   border: 1px solid #bbb;
+}
+
+.total-price-item {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.total-price {
+  font-weight: 800;
+}
+
+.separator {
+  width: 80%;
+  background-color: #ddd;
+  height: 1px;
+  border: 0;
+}
+
+.underlined-text {
+  text-decoration: underline;
+}
+
+.collapsible-header {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.collapsible-icon {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.item-details-container {
+  display: flex;
+}
+
+.item-image-container {
+  width: 30%;
+}
+
+.item-image-container img {
+  max-height: 100%;
+  max-width: 100%;
 }
